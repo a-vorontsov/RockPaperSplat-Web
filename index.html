@@ -35,13 +35,34 @@
 				<div>
 					<h3>Keyboard</h3>
 					<p>
-						Use the <kbd>W, A, S, D</kbd> keys to move
+						<kbd>A</kbd> or <kbd>D</kbd> to move <kbd>left</kbd> or <kbd>right</kbd>
+					</p>
+					<p>
+						<kbd>space</kbd> to <kbd>jump</kbd>
+					</p>
+					<p>
+						<kbd>O</kbd> to <kbd>dash</kbd>
+					</p>
+					<p>
+						<kbd>I</kbd> or <kbd>P</kbd> to change form <kbd>left</kbd> or <kbd>right</kbd>
+					</p>
+					<p>
+						<kbd>R</kbd> to <kbd>restart</kbd>
 					</p>
 				</div>
 				<div>
 					<h3>Controller</h3>
 					<p>
-						Use the <kbd>Left control stick</kbd> to move
+						<kbd>left control stick</kbd> to move <kbd>left</kbd> or <kbd>right</kbd>
+					</p>
+					<p>
+						<kbd>A</kbd> to <kbd>jump</kbd>
+					</p>
+					<p>
+						<kbd>X</kbd> to <kbd>dash</kbd>
+					</p>
+					<p>
+						<kbd>LB</kbd> or <kbd>RB</kbd> to change form <kbd>left</kbd> or <kbd>right</kbd>
 					</p>
 				</div>
 			</div>
@@ -82,24 +103,20 @@
 		size = 10,
 		ctx = can.getContext('2d');
 
-		/*can.addEventListener('mousemove', function(evt) {
+		can.addEventListener('mousemove', function(evt) {
 			var mousePos = getMousePos(can, evt);
 			var sx = (Math.ceil(mousePos.x/size)-1)*size,
 			sy =  (Math.ceil(mousePos.y/size)-1)*size;
-		}, false);*/
+		}, false);
 
 		can.addEventListener('mousedown', function(evt) {
-			can.addEventListener('mousemove', function(evt) {
-				var customColor = document.getElementById('colorPicker');
-				var mousePos = getMousePos(can, evt);
-				var sx = (Math.ceil(mousePos.x/size)-1)*size,
-				sy =  (Math.ceil(mousePos.y/size)-1)*size;
-				ctx.fillStyle = customColor.value;
-				ctx.fillRect(sx,sy,size,size);
-			}, false);
+			var customColor = document.getElementById('colorPicker');
+			var mousePos = getMousePos(can, evt);
+			var sx = (Math.ceil(mousePos.x/size)-1)*size,
+			sy =  (Math.ceil(mousePos.y/size)-1)*size;
+			ctx.fillStyle = customColor.value;
+			ctx.fillRect(sx,sy,size,size);
 		});
-
-		// can.addEventListener('mouseup', function(evt {}, true);
 
 		function getMousePos(canvas, evt) {
 			var rect = can.getBoundingClientRect();
