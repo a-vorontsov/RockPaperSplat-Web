@@ -23,15 +23,9 @@
 					<h2>About the Game</h2>
 				</div>
 				<div>
-					This game is fun!
-				</div>
-			</div>
-			<div>
-				<div>
-					<h2>Rules</h2>
-				</div>
-				<div>
-					These are the rules
+					<p>
+						RockPaperSplat! is a fun-filled action adventure game full of surprises and microtransactions.
+					</p>
 				</div>
 			</div>
 			<div>
@@ -39,7 +33,16 @@
 					<h2>Controls</h2>
 				</div>
 				<div>
-					These are the controls
+					<h3>Keyboard</h3>
+					<p>
+						Use the <kbd>W, A, S, D</kbd> keys to move
+					</p>
+				</div>
+				<div>
+					<h3>Controller</h3>
+					<p>
+						Use the <kbd>Left control stick</kbd> to move
+					</p>
 				</div>
 			</div>
 			<div>
@@ -47,51 +50,45 @@
 					<h2>Mechanics</h2>
 				</div>
 				<div>
-					These are the mechanics
+					<p>
+						These are the mechanics
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="spriteEditor">
+			<div class="content">
+				<div>
+					<h2>Sprite Editor</h2>
+				</div>
+				<div class="canvasEditor">
+					<canvas id="canvas" class="canvas" width="640" height="640"></canvas>
+					<canvas id="canvasGrid" class="canvasGrid" width="640" height="640"></canvas>
+				</div>
+				<div class="canvasMisc">
+					<div class="colorPicker">
+						<input type="color" id="colorPicker" value="#000000">
+					</div>
+					<div class="buttonSave">
+						<button class="saveButton" onclick="saveCanvas()">SAVE</button>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	<div>
-	</div>
-	<div class="spriteEditor">
-		<div class="canvasEditor">
-			<canvas id="canvas" class="canvas"></canvas>
-		</div>
-		<input type="color" id="colorPicker" value="#000000">
-		<button onclick="saveCanvas()">Save</button>
-	</div>
-	<script src="res/js/jquery-3.1.1.min.js"></script>
-	<script src="res/js/scripts.js"></script>
 	<script type="text/javascript">
-		var can = getById('canvas'),
+		var can = document.getElementById('canvas'),
 		boxes = 64,
 		size = 10,
 		ctx = can.getContext('2d');
 
-		function drawGrid() {
-			var len = can.height = can.width = boxes * size;
-			for (var i = 0; i < boxes; i++) {
-				ctx.beginPath();
-				ctx.strokeStyle = "#000";
-				ctx.moveTo(size + size * i - .5, 0);
-				ctx.lineTo(size + size * i - .5, len);
-				ctx.moveTo(0, size + size * i - .5);
-				ctx.lineTo(len, size + size * i - .5);
-				var grid = ctx.stroke();
-				console.log(grid);
-			}
-		}
-
-		drawGrid();
-
-		can.addEventListener('mousemove', function (evt) {
+		can.addEventListener('mousemove', function(evt) {
 			var mousePos = getMousePos(can, evt);
 			var sx = (Math.ceil(mousePos.x/size)-1)*size,
 			sy =  (Math.ceil(mousePos.y/size)-1)*size;
 		}, false);
 
-		can.addEventListener('mousedown', function (evt) {
+		can.addEventListener('mousedown', function(evt) {
 			var customColor = document.getElementById('colorPicker');
 			var mousePos = getMousePos(can, evt);
 			var sx = (Math.ceil(mousePos.x/size)-1)*size,
@@ -113,10 +110,27 @@
 			var img = canvas.toDataURL();
 			console.log(img);
 		}
+	</script>
+	<script type="text/javascript">
+		var canvas = document.getElementById('canvasGrid'),
+		boxes = 64,
+		size = 10,
+		context = canvas.getContext('2d');
 
-		function getById(x) {
-			return document.getElementById(x);
+		function drawGrid() {
+			var len = canvas.height = canvas.width = boxes * size;
+			for (var i = 0; i < boxes; i++) {
+				context.beginPath();
+				context.strokeStyle = "#000";
+				context.moveTo(size + size * i - .5, 0);
+				context.lineTo(size + size * i - .5, len);
+				context.moveTo(0, size + size * i - .5);
+				context.lineTo(len, size + size * i - .5);
+				context.stroke();
+			}
 		}
+
+		drawGrid();
 	</script>
 </body>
 
