@@ -7,50 +7,117 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" type="text/css" href="res/css/style.css">
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans|Quicksand" rel="stylesheet">
-	<script src="res/js/scripts.js"></script>
 </head>
 
 <body>
 	<div>
 		<div class="titleBanner">
-			<h1>Rock, Paper, Splat!</h1>
-		</div>
-		<div>
-			<div>
-				<h2>About the Game</h2>
-			</div>
-			<div>
-				This game is fun!
+			<div class="titleLogo">
+				<h1 class="titleName">RockPaperSplat</h1>
+				<img class="titleIcon" src="res/img/logo.png">
 			</div>
 		</div>
-		<div>
+		<div class="content">
 			<div>
-				<h2>Rules</h2>
+				<div>
+					<h2>About the Game</h2>
+				</div>
+				<div>
+					This game is fun!
+				</div>
 			</div>
 			<div>
-				These are the rules
-			</div>
-		</div>
-		<div>
-			<div>
-				<h2>Controls</h2>
-			</div>
-			<div>
-				These are the controls
-			</div>
-		</div>
-		<div>
-			<div>
-				<h2>Mechanics</h2>
+				<div>
+					<h2>Rules</h2>
+				</div>
+				<div>
+					These are the rules
+				</div>
 			</div>
 			<div>
-				These are the mechanics
+				<div>
+					<h2>Controls</h2>
+				</div>
+				<div>
+					These are the controls
+				</div>
+			</div>
+			<div>
+				<div>
+					<h2>Mechanics</h2>
+				</div>
+				<div>
+					These are the mechanics
+				</div>
 			</div>
 		</div>
 	</div>
 	<div>
-		<canvas id="canvasEditor" width="64" height="64"></canvas>
 	</div>
+	<div class="spriteEditor">
+		<div class="canvasEditor">
+			<canvas id="canvas" class="canvas"></canvas>
+		</div>
+		<input type="color" id="colorPicker" value="#000000">
+		<button onclick="saveCanvas()">Save</button>
+	</div>
+	<script src="res/js/jquery-3.1.1.min.js"></script>
+	<script src="res/js/scripts.js"></script>
+	<script type="text/javascript">
+		var can = getById('canvas'),
+		boxes = 64,
+		size = 10,
+		ctx = can.getContext('2d');
+
+		function drawGrid() {
+			var len = can.height = can.width = boxes * size;
+			for (var i = 0; i < boxes; i++) {
+				ctx.beginPath();
+				ctx.strokeStyle = "#000";
+				ctx.moveTo(size + size * i - .5, 0);
+				ctx.lineTo(size + size * i - .5, len);
+				ctx.moveTo(0, size + size * i - .5);
+				ctx.lineTo(len, size + size * i - .5);
+				var grid = ctx.stroke();
+				console.log(grid);
+			}
+		}
+
+		drawGrid();
+
+		can.addEventListener('mousemove', function (evt) {
+			var mousePos = getMousePos(can, evt);
+			var sx = (Math.ceil(mousePos.x/size)-1)*size,
+			sy =  (Math.ceil(mousePos.y/size)-1)*size;
+		}, false);
+
+		can.addEventListener('mousedown', function (evt) {
+			var customColor = document.getElementById('colorPicker');
+			var mousePos = getMousePos(can, evt);
+			var sx = (Math.ceil(mousePos.x/size)-1)*size,
+			sy =  (Math.ceil(mousePos.y/size)-1)*size;
+			ctx.fillStyle = customColor.value;
+			ctx.fillRect(sx,sy,size,size);
+		});
+
+		function getMousePos(canvas, evt) {
+			var rect = can.getBoundingClientRect();
+			return {
+				x: evt.clientX - rect.left,
+				y: evt.clientY - rect.top
+			};
+		}
+
+		function saveCanvas() {
+			var canvas = document.getElementById("canvas");
+			var img = canvas.toDataURL();
+			console.log(img);
+		}
+
+		function getById(x) {
+			return document.getElementById(x);
+		}
+	</script>
 </body>
 
 </html>
