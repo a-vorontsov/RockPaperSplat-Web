@@ -54,8 +54,13 @@ kbd {
   margin: 0 auto;
 }
 
+.backgroundGif {
+  background-image: url('../img/gameplay.gif');
+  background-size: cover;
+}
+
 .titleBanner {
-  background-color: #333;
+  background-color: rgba(51, 51, 51, 0.85);
   position: relative;
   overflow: hidden;
   width: 100%;
