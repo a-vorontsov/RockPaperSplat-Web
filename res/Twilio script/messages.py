@@ -3,8 +3,8 @@ import csv
 import pandas as pd
 
 #DON'T TEXT YET!
-account_sid = "ACb6b68d20ea7a9e746ef1e66ac49e81e4"
-auth_token = "434f97bf9c1f0c47f0fd99bfe450b211"
+account_sid = ""
+auth_token = ""
 reverse_command = 0
 gravity_command = 0
 dark_command = 0
