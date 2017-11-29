@@ -131,6 +131,12 @@ kbd {
   background-color: #333;
 }
 
+.editorContent {
+  width: 750px;
+  height: 1000px;
+  margin: 0 auto;
+}
+
 .spriteEditor h2 {
 	position: relative;
 	top: 33.2px;
@@ -208,4 +214,15 @@ input[type="color"]::-webkit-color-swatch {
 
 .saveButton:focus {
 	outline: none;
+}
+
+.footer {
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  font-family: "Quicksand", sans-serif;
+}
+
+.footer a {
+  color: inherit;
 }
