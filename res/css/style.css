@@ -50,7 +50,7 @@ kbd {
 
 .content {
   width: 750px;
-  height: 1000px;
+  height: 1250px;
   margin: 0 auto;
 }
 
@@ -86,6 +86,43 @@ kbd {
   top: 30%;
   left: 55%;
   z-index: 1;
+}
+
+.inputArea {
+  margin-top: 75px;
+  width: 750px !important;
+}
+
+.inputItem {
+  font-family: "Open Sans", sans-serif;
+  font-size: 1em;
+  width: 710px !important;
+  border-radius: 4px;
+  padding: 10px 20px;
+  border: none;
+  margin: 10px 0;
+}
+
+.inputButton {
+  font-family: "Open Sans", sans-serif;
+  font-size: 1em;
+  width: 750px !important;
+  border-radius: 4px;
+  padding: 10px 20px;
+  border: none;
+  margin: 10px 0;
+}
+
+.inputButton:hover {
+  opacity: 0.8;
+}
+
+.inputButton:active {
+  opacity: 0.7;
+}
+
+.inputButton:focus {
+  outline: none;
 }
 
 .spriteEditor {
