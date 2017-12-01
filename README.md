@@ -1,2 +1,4 @@
 # RockPaperSplat
-Web Page for HackKings-4.0 project
+### Static web page for RockPaperSplat
+
+Most up to date version available at [rockpapersplat.tech](http://rockpapersplat.tech)
