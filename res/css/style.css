@@ -125,6 +125,12 @@ kbd {
   outline: none;
 }
 
+@media (max-width: 767px) {
+  .spriteEditor {
+    display: none;
+  }
+}
+
 .spriteEditor {
   width: 100%;
   height: 1000px;
