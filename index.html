@@ -1,10 +1,35 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-  <title>RockPaperSplat!</title>
   <meta charset="utf-8">
+  <title>RockPaperSplat!</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="RockPaperSplat is the best rendition of Rock-Paper-Scissors to date! Join your friends in">
+  <meta name="keywords" content="Rock, Paper, Scissors, Splat, Rock Paper Scissors, Rock Paper Splat, RockPaperSplat, Game, RPS, R-P-S">
+  <meta name="author" content="Aleksandr Vorontsov">
+  <!-- Favicon stuff -->
+  <link rel="apple-touch-icon-precomposed" sizes="57x57" href="res/img/favicon/apple-touch-icon-57x57.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="res/img/favicon/apple-touch-icon-114x114.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="res/img/favicon/apple-touch-icon-72x72.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="res/img/favicon/apple-touch-icon-144x144.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="60x60" href="res/img/favicon/apple-touch-icon-60x60.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="120x120" href="res/img/favicon/apple-touch-icon-120x120.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="76x76" href="res/img/favicon/apple-touch-icon-76x76.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="152x152" href="res/img/favicon/apple-touch-icon-152x152.png" />
+  <link rel="icon" type="image/png" href="res/img/favicon/favicon-196x196.png" sizes="196x196" />
+  <link rel="icon" type="image/png" href="res/img/favicon/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/png" href="res/img/favicon/favicon-32x32.png" sizes="32x32" />
+  <link rel="icon" type="image/png" href="res/img/favicon/favicon-16x16.png" sizes="16x16" />
+  <link rel="icon" type="image/png" href="res/img/favicon/favicon-128.png" sizes="128x128" />
+  <meta name="application-name" content="RockPaperSplat!"/>
+  <meta name="msapplication-TileColor" content="#FFFFFF" />
+  <meta name="msapplication-TileImage" content="res/img/favicon/mstile-144x144.png" />
+  <meta name="msapplication-square70x70logo" content="res/img/favicon/mstile-70x70.png" />
+  <meta name="msapplication-square150x150logo" content="res/img/favicon/mstile-150x150.png" />
+  <meta name="msapplication-wide310x150logo" content="res/img/favicon/mstile-310x150.png" />
+  <meta name="msapplication-square310x310logo" content="res/img/favicon/mstile-310x310.png" />
+  <!-- End Favicon stuff -->
   <link rel="stylesheet" type="text/css" href="res/css/style.css">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans|Quicksand" rel="stylesheet">
 </head>
@@ -31,10 +56,10 @@
           <p>
             With exciting power-ups and abilities, beating your friends at this classic game has never been more fun.
           </p>
-          <p>
+          <!-- <p>
             Allow your audience to change the flow of the game by voting on which power-up to send to the game!
           </p>
-          <!-- <h3>
+          <h3>
             Text <kbd>!reverse</kbd>, <kbd>!gravity</kbd>, <kbd>!dark</kbd> or <kbd>!flip</kbd> to: <kbd>01642688416</kbd>
           </h3> -->
         </div>
@@ -79,7 +104,7 @@
       </div>
       <div class="inputArea">
         <h3>Sign up to receive information about the game</h3>
-        <p>You will be temporarily redirected to an external page for verification</p>
+        <aside>You will be temporarily redirected to an external page for verification</aside>
         <form class="inputForm" action="https://formspree.io/subscribe@rockpapersplat.tech" method="POST">
           <input class="inputItem" type="text" name="name" placeholder="Name"><br>
           <input class="inputItem" type="email" name="email" placeholder="Email"><br>
@@ -113,68 +138,7 @@
   <footer class="footer">
     Designed and Developed by <a href="https://vorontsov.co.uk">Aleksandr Vorontsov</a> for HackKing's-4.0
   </footer>
-  <script type="text/javascript">
-    function download() {
-      var canvas = document.getElementById("canvas");
-      var dt = canvas.toDataURL('image/png');
-      this.href = dt;
-    };
-    downloadLink.addEventListener('click', download, false);
-
-    var can = document.getElementById('canvas'),
-    boxes = 64,
-    size = 10,
-    ctx = can.getContext('2d');
-
-    can.addEventListener('mousemove', function(evt) {
-      var mousePos = getMousePos(can, evt);
-      var sx = (Math.ceil(mousePos.x/size)-1)*size,
-      sy =  (Math.ceil(mousePos.y/size)-1)*size;
-    }, false);
-
-    can.addEventListener('mousedown', function(evt) {
-      var customColor = document.getElementById('colorPicker');
-      var mousePos = getMousePos(can, evt);
-      var sx = (Math.ceil(mousePos.x/size)-1)*size,
-      sy =  (Math.ceil(mousePos.y/size)-1)*size;
-      ctx.fillStyle = customColor.value;
-      ctx.fillRect(sx,sy,size,size);
-    });
-
-    function getMousePos(canvas, evt) {
-      var rect = can.getBoundingClientRect();
-      return {
-        x: evt.clientX - rect.left,
-        y: evt.clientY - rect.top
-      };
-    }
-
-    function saveCanvas() {
-      var canvas = document.getElementById("canvas");
-      var img = canvas.toDataURL();
-    }
-  </script>
-  <script type="text/javascript">
-    var canvas = document.getElementById('canvasGrid'),
-    boxes = 64,
-    size = 10,
-    context = canvas.getContext('2d');
-
-    function drawGrid() {
-      var len = canvas.height = canvas.width = boxes * size;
-      for (var i = 0; i < boxes; i++) {
-        context.beginPath();
-        context.strokeStyle = "#000";
-        context.moveTo(size + size * i - .5, 0);
-        context.lineTo(size + size * i - .5, len);
-        context.moveTo(0, size + size * i - .5);
-        context.lineTo(len, size + size * i - .5);
-        context.stroke();
-      }
-    }
-
-    drawGrid();
-  </script>
+  <script src="res/js/scripts.js"></script>
 </body>
 
 </html>
