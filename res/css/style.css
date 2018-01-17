@@ -90,13 +90,13 @@ kbd {
 
 .inputArea {
   margin-top: 75px;
-  width: 750px !important;
+  width: 750px;
 }
 
 .inputItem {
   font-family: "Open Sans", sans-serif;
   font-size: 1em;
-  width: 710px !important;
+  width: 710px;
   border-radius: 4px;
   padding: 10px 20px;
   border: none;
@@ -106,7 +106,7 @@ kbd {
 .inputButton {
   font-family: "Open Sans", sans-serif;
   font-size: 1em;
-  width: 750px !important;
+  width: 750px;
   border-radius: 4px;
   padding: 10px 20px;
   border: none;
@@ -231,4 +231,35 @@ input[type="color"]::-webkit-color-swatch {
 
 .footer a {
   color: inherit;
+}
+
+/* Mobile shit */
+@media (max-width: 767px) {
+  .content {
+    width: 90vw;
+  }
+
+  .inputArea {
+    width: 90vw !important;
+  }
+
+  .inputForm {
+    width: 85vw !important;
+  }
+
+  .inputItem {
+    width: 91% !important;
+  }
+
+  .inputButton {
+    width: 100% !important;
+  }
+
+  .titleName {
+    position: relative;
+    font-family: "Rock";
+    font-size: 2em;
+    color: #ccc;
+    z-index: 2;
+  }
 }
